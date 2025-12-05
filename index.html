@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-12">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP Training Institute</title>
+    
+    <!-- Import Google Fonts (Poppins for that modern IT look) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Import FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS for rapid, modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Configuration for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0b1c39',   /* Deep Navy Blue */
+                            primary: '#266bf9', /* Bright Tech Blue */
+                            accent: '#ff5e14',  /* Orange Accent */
+                            light: '#f4f7fa'    /* Light Gray Background */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for animations */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: hidden !important;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-brand-light antialiased">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-8 py-8 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-14 h-14 bg-brand-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    SAP FIRM
+                </div>
+                <div class="text-2xl font-bold text-brand-dark tracking-tight">
+                   SAP MODULES <span class="text-brand-primary">Institute</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 font-semibold text-brand-dark">
+                <a href="#home" class="hover:text-brand-primary transition">Home</a>
+                <a href="#trainings" class="hover:text-brand-primary transition">Trainings</a>
+                <a href="#news" class="hover:text-brand-primary transition">News</a>
+                <a href="#contact" class="px-5 py-2 bg-brand-primary text-white rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Contact Us</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-brand-dark text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-dark">
+        <!-- Background Pattern/Overlay -->
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span class="text-brand-accent font-bold tracking-wider uppercase text-sm mb-4 block">Welcome to SAP MODULES</span>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Master SAP Technologies <br> with <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Expert Training</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                Join the leading institute for SAP ABAP, BTP, and FICO. Practical learning, virtual or in-person, designed for your career growth.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#trainings" class="px-8 py-4 bg-brand-primary text-white font-bold rounded hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
+                    Explore Courses
+                </a>
+                <a href="#contact" class="px-8 py-4 border border-gray-500 text-white font-bold rounded hover:bg-white hover:text-brand-dark transition">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAININGS SECTION (Services Style) -->
+    <section id="trainings" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-brand-primary font-bold uppercase tracking-wide mb-2">Our Courses</h3>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">Choose Your Learning Path</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid of Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: SAP ABAP -->
+                <div onclick="openModal('SAP ABAP')" class="bg-brand-light p-8 rounded-xl cursor-pointer card-hover border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-code text-8xl text-brand-primary"></i>
+                    </div>
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-brand-primary text-2xl shadow-md mb-6 group-hover:bg-brand-primary group-hover:text-white transition">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">1. SAP ABAP</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Master the core programming language of SAP systems.</p>
+                    <span class="text-brand-primary font-semibold text-sm group-hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></span>
+                </div>
+
+                <!-- Card 2: SAP BTP -->
+                <div onclick="openModal('SAP BTP')" class="bg-brand-light p-8 rounded-xl cursor-pointer card-hover border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-cloud text-8xl text-brand-primary"></i>
+                    </div>
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-brand-primary text-2xl shadow-md mb-6 group-hover:bg-brand-primary group-hover:text-white transition">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">2. SAP BTP</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Build and extend SAP applications in the cloud.</p>
+                    <span class="text-brand-primary font-semibold text-sm group-hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></span>
+                </div>
+
+                <!-- Card 3: SuccessFactors -->
+                <div onclick="openModal('SuccessFactors')" class="bg-brand-light p-8 rounded-xl cursor-pointer card-hover border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-users text-8xl text-brand-primary"></i>
+                    </div>
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-brand-primary text-2xl shadow-md mb-6 group-hover:bg-brand-primary group-hover:text-white transition">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">3. SuccessFactors</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Human Capital Management (HCM) solutions.</p>
+                    <span class="text-brand-primary font-semibold text-sm group-hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></span>
+                </div>
+
+                <!-- Card 4: SAP FICO -->
+                <div onclick="openModal('SAP FICO')" class="bg-brand-light p-8 rounded-xl cursor-pointer card-hover border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-chart-line text-8xl text-brand-primary"></i>
+                    </div>
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-brand-primary text-2xl shadow-md mb-6 group-hover:bg-brand-primary group-hover:text-white transition">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">4. SAP FICO</h3>
+                    <p class="text-gray-500 mb-4 text-sm">Financial Accounting and Controlling expertise.</p>
+                    <span class="text-brand-primary font-semibold text-sm group-hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section id="news" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h3 class="text-brand-primary font-bold uppercase tracking-wide mb-2">Latest Updates</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">SAP MODULES News & Insights</h2>
+                </div>
+                <a href="#" class="hidden md:block text-brand-dark font-semibold hover:text-brand-primary">View All News <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- News Item 1 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                    <div class="h-48 bg-gray-300 relative">
+                         <!-- Placeholder for news image -->
+                         <div class="absolute inset-0 bg-brand-dark flex items-center justify-center text-white text-4xl opacity-80 group-hover:opacity-100 transition">
+                            <i class="fas fa-newspaper"></i>
+                         </div>
+                         <div class="absolute top-4 left-4 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded">NEW</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-gray-400 text-sm mb-2"><i class="far fa-calendar-alt mr-2"></i> Oct 24, 2025</div>
+                        <h4 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition">New Batches Starting Soon</h4>
+                        <p class="text-gray-600 text-sm">Enrollment is now open for the upcoming winter session. Secure your spot today.</p>
+                    </div>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                    <div class="h-48 bg-gray-300 relative">
+                         <div class="absolute inset-0 bg-brand-dark flex items-center justify-center text-white text-4xl opacity-80 group-hover:opacity-100 transition">
+                            <i class="fas fa-trophy"></i>
+                         </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-gray-400 text-sm mb-2"><i class="far fa-calendar-alt mr-2"></i> Oct 20, 2025</div>
+                        <h4 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition">SAP MODULES Students Certified</h4>
+                        <p class="text-gray-600 text-sm">Congratulations to our recent graduates for achieving 100% certification success.</p>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                    <div class="h-48 bg-gray-300 relative">
+                         <div class="absolute inset-0 bg-brand-dark flex items-center justify-center text-white text-4xl opacity-80 group-hover:opacity-100 transition">
+                            <i class="fas fa-laptop-code"></i>
+                         </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-gray-400 text-sm mb-2"><i class="far fa-calendar-alt mr-2"></i> Oct 15, 2025</div>
+                        <h4 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition">Virtual Lab Upgrade</h4>
+                        <p class="text-gray-600 text-sm">We have upgraded our virtual training servers for faster SAP BTP access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-brand-dark text-white relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-brand-accent font-bold uppercase tracking-wide mb-2">Contact Us</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Have Questions? <br> Get in Touch.</h2>
+                    <p class="text-gray-400 mb-8 text-lg">Whether you want to enroll or just need advice on your SAP career path, our experts are here to help.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-brand-accent text-xl mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold">Email Us</h4>
+                                <p class="text-gray-400">contact@SAP MODULES-institute.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-brand-accent text-xl mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold">Visit Us</h4>
+                                <p class="text-gray-400">Langen, Hessen, Germany</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-2xl text-gray-700">
+                    <h3 class="text-2xl font-bold text-brand-dark mb-6">Send a Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Message sent! We will contact you shortly.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="Your Name" class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-primary outline-none">
+                            <input type="email" placeholder="Email Address" class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-primary outline-none">
+                        </div>
+                        <select class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 mb-4 focus:ring-2 focus:ring-brand-primary outline-none text-gray-500">
+                            <option>Select Course</option>
+                            <option>SAP ABAP</option>
+                            <option>SAP BTP</option>
+                            <option>SuccessFactors</option>
+                            <option>SAP FICO</option>
+                        </select>
+                        <textarea placeholder="Your Message" rows="4" class="w-full bg-gray-100 border-none rounded-lg px-4 py-3 mb-6 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                        <button class="w-full bg-brand-primary text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#050e1d] text-gray-500 py-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold text-white">SAP MODULES</span> &copy; 2025. All Rights Reserved.
+            </div>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL (Popup for Course Details) -->
+    <div id="courseModal" class="fixed inset-0 z-[100] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" onclick="closeModal()"></div>
+
+        <!-- Modal Panel -->
+        <div class="flex items-center justify-center min-h-screen p-4 text-center sm:p-0">
+            <div class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg w-full">
+                <div class="bg-brand-primary px-4 py-4 sm:px-6">
+                    <h3 class="text-lg leading-6 font-medium text-white" id="modal-title">Course Details</h3>
+                    <button onclick="closeModal()" class="absolute top-3 right-4 text-white hover:text-gray-200 text-xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-2xl leading-6 font-bold text-brand-dark mb-4" id="modal-course-name">Course Name</h3>
+                            <div class="space-y-3 text-gray-600">
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <i class="fas fa-money-bill-wave text-brand-primary w-8"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-bold">Fees</p>
+                                        <p class="font-semibold text-brand-dark">Rs. 5000 per course</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <i class="far fa-clock text-brand-primary w-8"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-bold">Duration</p>
+                                        <p class="font-semibold text-brand-dark">2 Months</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <i class="fas fa-map-marker-alt text-brand-primary w-8"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-bold">Place</p>
+                                        <p class="font-semibold text-brand-dark">Virtual or In-Institute</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <i class="fas fa-envelope text-brand-primary w-8"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-bold">Contact</p>
+                                        <p class="font-semibold text-brand-dark">contact@SAP MODULES-institute.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" onclick="closeModal()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-brand-primary text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                        Close
+                    </button>
+                    <a href="#contact" onclick="closeModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Enroll Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('courseModal');
+        const modalTitle = document.getElementById('modal-course-name');
+        
+        function openModal(courseName) {
+            modalTitle.innerText = courseName;
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        // Close modal if Esc key is pressed
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                closeModal();
+            }
+        };
+
+        // Smooth scrolling for Anchor links is handled by CSS class 'scroll-smooth'
+    </script>
+</body>
+</html>
